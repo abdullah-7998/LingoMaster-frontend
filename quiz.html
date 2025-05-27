@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Quiz - LingoMaster</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  :root {
+    --bg: #1e1e2f;
+    --text: #fff;
+    --accent: #ffcc00;
+    --card-bg: rgba(255 255 255 / 0.1);
+    --card-hover-bg: rgba(255 255 255 / 0.2);
+  }
+
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 100vh;
+  }
+
+  /* Mascot (smaller like progress page) */
+  .mascot {
+    width: 80px;
+    margin-bottom: 20px;
+    animation: bounce 3s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-10px);}
+  }
+
+  h1 {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 2.5rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 8px #ffcc00cc;
+  }
+
+  /* Nav link back to home */
+  .nav-link {
+    margin-bottom: 30px;
+    color: var(--accent);
+    font-weight: 700;
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #fff;
+  }
+
+  /* Quiz container */
+  .quiz-container {
+    width: 100%;
+    max-width: 700px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(5px);
+  }
+
+  /* Question styling */
+  .question {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+  }
+
+  /* Answer buttons */
+  .answer-btn {
+    background: rgba(255, 204, 0, 0.15);
+    border: none;
+    border-radius: 12px;
+    padding: 12px 20px;
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    margin: 8px 0;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.3s ease;
+  }
+
+  .answer-btn:hover {
+    background: var(--accent);
+    color: #000;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Mascot -->
+<div class="mascot" aria-label="Lingo mascot" role="img">
+  <svg viewBox="0 0 64 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffcc00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <circle cx="32" cy="32" r="30" fill="#1e1e2f"/>
+    <circle cx="24" cy="28" r="6" fill="#ffcc00"/>
+    <circle cx="40" cy="28" r="6" fill="#ffcc00"/>
+    <circle cx="24" cy="28" r="2" fill="#1e1e2f"/>
+    <circle cx="40" cy="28" r="2" fill="#1e1e2f"/>
+    <path d="M22 38c6 8 18 8 18 0" stroke="#ffcc00" stroke-width="3" stroke-linecap="round"/>
+    <path d="M30 16c0-4 4-8 8-8" stroke="#ffcc00" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<!-- Back to home link -->
+<a href="index.html" class="nav-link" aria-label="Back to Home">← Back to Home</a>
+
+<h1>Interactive Quiz</h1>
+
+<div class="quiz-container" role="main" aria-live="polite">
+  <!-- Example question and answers -->
+  <div class="question" id="question">What is the Spanish word for "apple"?</div>
+  <button class="answer-btn" type="button">Manzana</button>
+  <button class="answer-btn" type="button">Pera</button>
+  <button class="answer-btn" type="button">Naranja</button>
+  <button class="answer-btn" type="button">Plátano</button>
+</div>
+
+</body>
+</html>

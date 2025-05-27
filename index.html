@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>LingoMaster - Home</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+  :root {
+    --bg: #1e1e2f;
+    --text: #fff;
+    --accent: #ffcc00;
+    --card-bg: rgba(255 255 255 / 0.1);
+    --card-hover-bg: rgba(255 255 255 / 0.2);
+  }
+
+  * {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Poppins', 'Comic Sans MS', sans-serif;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Mascot container */
+  .mascot {
+    width: 120px;
+    margin-bottom: 30px;
+    animation: bounce 3s ease-in-out infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0);}
+    50% { transform: translateY(-20px);}
+  }
+
+  h1 {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    text-shadow: 0 0 8px #ffcc00cc;
+  }
+
+  .modules {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+    gap: 25px;
+    width: 100%;
+    max-width: 960px;
+  }
+
+  .module-card {
+    background-color: var(--card-bg);
+    border-radius: 16px;
+    padding: 35px 25px;
+    text-align: center;
+    font-size: 1.2rem;
+    cursor: default;
+    box-shadow: 0 0 15px rgba(0,0,0,0.25);
+    color: #eee;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    user-select: none;
+    position: relative;
+  }
+
+  .module-card.working {
+    cursor: pointer;
+    user-select: auto;
+  }
+
+  .module-card.working:hover {
+    background-color: var(--card-hover-bg);
+    transform: scale(1.08);
+    box-shadow: 0 0 25px var(--accent);
+  }
+
+  /* Animated emoji in cards */
+  .module-card::before {
+    content: attr(data-emoji);
+    display: block;
+    font-size: 2.8rem;
+    margin-bottom: 15px;
+    animation: wave 2s infinite;
+  }
+
+  /* Emoji wave animation */
+  @keyframes wave {
+    0%, 60%, 100% { transform: rotate(0deg);}
+    30% { transform: rotate(15deg);}
+    45% { transform: rotate(-15deg);}
+  }
+
+  /* Links styling */
+  a {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    height: 100%;
+  }
+
+  /* Footer with Lingo tagline */
+  footer {
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: #aaa;
+  }
+
+  /* New navigation link styling */
+  .nav-link {
+    margin-top: 30px;
+    color: var(--accent);
+    font-weight: 700;
+    text-align: center;
+    font-size: 1.25rem;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.3s ease;
+  }
+
+  .nav-link:hover {
+    color: #fff;
+  }
+</style>
+</head>
+<body>
+
+<!-- Mascot SVG Lingo -->
+<div class="mascot" aria-label="Lingo mascot" role="img">
+  <svg viewBox="0 0 64 64" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#ffcc00" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <circle cx="32" cy="32" r="30" fill="#1e1e2f"/>
+    <circle cx="24" cy="28" r="6" fill="#ffcc00"/>
+    <circle cx="40" cy="28" r="6" fill="#ffcc00"/>
+    <circle cx="24" cy="28" r="2" fill="#1e1e2f"/>
+    <circle cx="40" cy="28" r="2" fill="#1e1e2f"/>
+    <path d="M22 38c6 8 18 8 18 0" stroke="#ffcc00" stroke-width="3" stroke-linecap="round"/>
+    <path d="M30 16c0-4 4-8 8-8" stroke="#ffcc00" stroke-width="2" stroke-linecap="round"/>
+  </svg>
+</div>
+
+<h1>Welcome to LingoMaster</h1>
+
+<div class="modules">
+  <!-- Working Modules (updated links) -->
+  <a href="quiz.html" aria-label="Interactive Quizzes & Exercises">
+    <div class="module-card working" data-emoji="🧠">Interactive Quizzes & Exercises</div>
+  </a>
+  
+  <a href="progress.html" aria-label="Progress Report & Certification">
+    <div class="module-card working" data-emoji="📈">Progress Report & Certification</div>
+  </a>
+
+  <!-- Display-Only Modules -->
+  <div class="module-card" data-emoji="📚" aria-label="Course & Lesson Management (coming soon)">Course & Lesson Management</div>
+  <div class="module-card" data-emoji="🎮" aria-label="Gamification & XP (coming soon)">Gamification & XP</div>
+  <div class="module-card" data-emoji="🧍" aria-label="Avatar Customization (coming soon)">Avatar Customization</div>
+</div>
+
+<!-- New Navigation Link to Progress -->
+<a href="progress.html" class="nav-link" aria-label="View Your Progress Report">👉 View Your Progress Report</a>
+
+<footer>Meet Lingo, your friendly language companion! 🦜</footer>
+
+</body>
+</html>
